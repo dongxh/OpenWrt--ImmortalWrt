@@ -15,7 +15,7 @@
 on:
   workflow_dispatch:
   repository_dispatch:
-#    types: [on-update]
+    types: [on-update]
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
@@ -28,7 +28,7 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  OpenWrt_Gateway_Builder:
+#  OpenWrt_Gateway_Builder:
     runs-on: ubuntu-22.04
 
     steps:

@@ -10,12 +10,12 @@
 # See /LICENSE for more information.
 #
 
-name: OpenWrt Gateway Builder
+#name: OpenWrt Gateway Builder
 
-on:
-  workflow_dispatch:
-  repository_dispatch:
-    types: [on-update]
+#on:
+#  workflow_dispatch:
+#  repository_dispatch:
+#    types: [on-update]
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt

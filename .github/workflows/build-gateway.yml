@@ -28,7 +28,7 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-#  OpenWrt_Gateway_Builder:
+  OpenWrt_Gateway_Builder:
     runs-on: ubuntu-22.04
 
     steps:

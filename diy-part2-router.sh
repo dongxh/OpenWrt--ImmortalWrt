@@ -58,7 +58,7 @@ function clean_packages(){
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.2.99/192.168.2.99/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -84,14 +84,14 @@ config_package_add default-settings-chn
 # bbr
 config_package_add kmod-tcp-bbr
 # coremark cpu 跑分
-config_package_add coremark
+#config_package_add coremark
 # autocore + lm-sensors-detect： cpu 频率、温度
 config_package_add autocore
 config_package_add lm-sensors-detect
 # nano 替代 vim
 config_package_add nano
 # upnp
-config_package_add luci-app-upnp
+#config_package_add luci-app-upnp
 # tty 终端
 config_package_add luci-app-ttyd
 # docker
@@ -156,4 +156,4 @@ sed -i "s/CONFIG_GRUB_TIMEOUT=\"3\"/CONFIG_GRUB_TIMEOUT=\"1\"/" .config
 ## 不生成 EXT4 硬盘格式镜像
 config_del TARGET_ROOTFS_EXT4FS
 ## 不生成非 EFI 镜像
-config_del GRUB_IMAGES
+#config_del GRUB_IMAGES

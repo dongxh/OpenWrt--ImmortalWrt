@@ -12,9 +12,9 @@
 
 #name: OpenWrt Gateway Builder
 
-#on:
-#  workflow_dispatch:
-#  repository_dispatch:
+on:
+  workflow_dispatch:
+  repository_dispatch:
 #    types: [on-update]
 
 env:

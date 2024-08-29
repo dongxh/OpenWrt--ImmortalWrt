@@ -148,7 +148,7 @@ config_package_add luci-app-3ginfo-lite
 # 镜像生成
 # 修改分区大小
 sed -i "/CONFIG_TARGET_KERNEL_PARTSIZE/d" .config
-echo "CONFIG_TARGET_KERNEL_PARTSIZE=32" >> .config
+echo "CONFIG_TARGET_KERNEL_PARTSIZE=90" >> .config
 sed -i "/CONFIG_TARGET_ROOTFS_PARTSIZE/d" .config
 echo "CONFIG_TARGET_ROOTFS_PARTSIZE=2048" >> .config
 # 调整 GRUB_TIMEOUT

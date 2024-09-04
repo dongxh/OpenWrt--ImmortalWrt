@@ -64,6 +64,8 @@ sed -i 's/192.168.2.99/192.168.2.99/g' package/base-files/files/bin/config_gener
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 删除
+# Firmware
+config_package_del intel-igpu-firmware-dmc
 # Sound Support
 config_package_del kmod-sound-core
 config_package_del kmod-ac97
@@ -78,6 +80,8 @@ config_package_del kmod-sound-via82xx
 config_package_del kmod-usb-audio
 
 # 新增
+# Firmware
+config_package_add intel-microcode
 # luci
 config_package_add luci
 config_package_add default-settings-chn

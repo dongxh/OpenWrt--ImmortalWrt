@@ -100,6 +100,8 @@ config_package_add nano
 config_package_add luci-app-ttyd
 # docker
 config_package_add luci-app-dockerman
+# diskman
+config_package_add luci-app-diskman
 # kms
 config_package_add luci-app-vlmcsd
 # usb 2.0 3.0 支持

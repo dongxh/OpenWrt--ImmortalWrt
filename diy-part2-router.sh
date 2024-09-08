@@ -121,6 +121,10 @@ mkdir -p package/custom
 git clone --depth 1  https://github.com/217heidai/OpenWrt-Packages.git package/custom
 git clone --depth 1  https://github.com/kiddin9/openwrt-packages.git package/custom
 clean_packages package/custom
+
+# OpenClash
+git clone --single-branch --depth 1 -b master https://github.com/vernesong/OpenClash.git package/new/luci-app-openclash
+
 # golang
 rm -rf feeds/packages/lang/golang
 mv package/custom/golang feeds/packages/lang/

@@ -102,6 +102,10 @@ config_package_add luci-app-ttyd
 config_package_add luci-app-dockerman
 # diskman
 config_package_add luci-app-diskman
+# ddns
+config_package_add luci-app-ddns=y
+# openclash
+config_package_add luci-app-openclash=y
 # kms
 config_package_add luci-app-vlmcsd
 # usb 2.0 3.0 支持

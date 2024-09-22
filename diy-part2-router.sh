@@ -88,24 +88,22 @@ config_package_add default-settings-chn
 # bbr
 config_package_add kmod-tcp-bbr
 # coremark cpu 跑分
-#config_package_add coremark
+config_package_add coremark
 # autocore + lm-sensors-detect： cpu 频率、温度
 config_package_add autocore
 config_package_add lm-sensors-detect
 # nano 替代 vim
 config_package_add nano
 # upnp
-#config_package_add luci-app-upnp
+config_package_add luci-app-upnp
+# python3
+config_package_add python3
+config_package_add python3-base
+config_package_add python3-pip
 # tty 终端
 config_package_add luci-app-ttyd
 # docker
 config_package_add luci-app-dockerman
-# diskman
-config_package_add luci-app-diskman
-# ddns
-config_package_add luci-app-ddns=y
-# openclash
-#config_package_add luci-app-openclash=y
 # kms
 config_package_add luci-app-vlmcsd
 # usb 2.0 3.0 支持
@@ -123,24 +121,7 @@ config_package_add kmod-usb-net-ipheth
 # 第三方软件包
 mkdir -p package/custom
 git clone --depth 1  https://github.com/217heidai/OpenWrt-Packages.git package/custom
-git clone --depth 1  https://github.com/kiddin9/openwrt-packages.git package/custom
 clean_packages package/custom
-
-# OpenClash
-#git clone --single-branch --depth 1 -b master https://github.com/vernesong/OpenClash.git package/new/luci-app-openclash
-
-# 预置Clash内核
-#echo -e "预置Clash内核"
-#mkdir -p package//new/luci-app-openclash/root/etc/openclash/core
-#core_path="package/new/luci-app-openclash/root/etc/openclash/core"
-#goe_path="package//new/luci-app-openclash/root/etc/openclash"
-
-#CLASH_DEV_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz"
-#CLASH_TUN_URL=$(curl -fsSL https://api.github.com/repos/vernesong/OpenClash/contents/master/premium\?ref\=core | grep download_url | grep "amd64" | awk -F '"' '{print $4}' | grep "v3" )
-#CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-amd64.tar.gz"
-#GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
-#GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
-
 # golang
 rm -rf feeds/packages/lang/golang
 mv package/custom/golang feeds/packages/lang/
@@ -165,17 +146,17 @@ config_package_add luci-app-partexp
 config_package_add luci-app-store
 ## 4G/5G 支持：FM350-GL USB RNDIS
 ### Siriling/5G-Modem-Support
-#config_package_add luci-app-modem
-#config_package_add luci-app-sms-tool-js
+config_package_add luci-app-modem
+config_package_add luci-app-sms-tool-js
 ### luci-app-modemband
-#config_package_add luci-app-modemband
+config_package_add luci-app-modemband
 ### luci-app-3ginfo-lite
-#config_package_add luci-app-3ginfo-lite
+config_package_add luci-app-3ginfo-lite
 
 # 镜像生成
 # 修改分区大小
 sed -i "/CONFIG_TARGET_KERNEL_PARTSIZE/d" .config
-echo "CONFIG_TARGET_KERNEL_PARTSIZE=90" >> .config
+echo "CONFIG_TARGET_KERNEL_PARTSIZE=32" >> .config
 sed -i "/CONFIG_TARGET_ROOTFS_PARTSIZE/d" .config
 echo "CONFIG_TARGET_ROOTFS_PARTSIZE=2048" >> .config
 # 调整 GRUB_TIMEOUT
@@ -183,4 +164,4 @@ sed -i "s/CONFIG_GRUB_TIMEOUT=\"3\"/CONFIG_GRUB_TIMEOUT=\"1\"/" .config
 ## 不生成 EXT4 硬盘格式镜像
 config_del TARGET_ROOTFS_EXT4FS
 ## 不生成非 EFI 镜像
-#config_del GRUB_IMAGES
+config_del GRUB_IMAGES
